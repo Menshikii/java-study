@@ -1,18 +1,32 @@
 # 学习进度
 
 > 每次对话开始先读这份文件；每周结束前更新它。
-> 最后更新：（待填写）
+> 最后更新：2026-10-13
 
 ## 当前位置
 
 | 项 | 内容 |
 |---|---|
-| 当前周 | **W0 —— 环境搭建** |
+| 当前周 | **W0 —— 环境搭建**（进行中，环境已实测核查） |
 | 当前阶段 | 阶段 0 |
-| 本周开始日期 | （待填写） |
-| 本周主题 | 环境搭建：JDK 21、IDEA、Git、WSL2/Docker、AI 工具、云服务器 |
-| 本周产出物 | GitHub 仓库有第一个提交，README 写明 16 周计划 |
-| 本周状态 | 未开始 |
+| 本周开始日期 | 2026-10-13（周二）～ 2026-10-15（周四），共 3 天 |
+| 本周主题 | 环境搭建：JDK 21、Maven、IDEA、Git/GitHub、WSL2/Docker、AI 工具、云服务器 |
+| 本周产出物 | GitHub 仓库有提交，README 写明 16 周计划 |
+| 本周状态 | 进行中：仓库已有首个提交；JDK 21 / Maven / 远程仓库 / WSL2 待完成 |
+| 下周起始 | W1 = 2026-10-16（周五）～ 2026-10-22（周四），6 个学习日 + 1 个复盘日 |
+
+## 环境实测底账（2026-10-13 核查）
+
+| 项 | 实测结果 |
+|---|---|
+| Git | ✅ 2.55.0，全局 `user.name/email` 已配；仓库 `java-study` 在 `main` 上已有 1 个提交 |
+| IntelliJ IDEA | ✅ 2026.2.3（`C:\Dev\IntelliJ IDEA 2026.2.3`），已启动过；⚠️ Ultimate 模块被禁用（等同社区版功能），未装任何第三方插件 |
+| JDK | ❌ 系统 `java` 指向 Oracle **JRE 1.8.0_503**（只有运行时，无 `javac`）；`JAVA_HOME` 为空；**没有 JDK 21** |
+| Maven | ⚠️ 只有 IDEA 内置的 3.9.16（`plugins\maven-plugin\lib\maven3`），未装独立版、不在 PATH；无 `~/.m2/settings.xml`（无镜像，走中央仓库会慢） |
+| 远程仓库 | ❌ 无 `git remote`；`~/.ssh` 只有 `known_hosts`，**没有 SSH key** |
+| WSL2 / Docker | ❌ 都没装（`wsl --status` 提示未安装 Linux 子系统） |
+| 网络 | ✅ github.com、Maven Central 均可达（HTTP 200）；winget / curl / ssh / node 可用 |
+| 练习代码 | ❌ `src/` 下只有 README，尚无代码 |
 
 ## 里程碑进度
 
@@ -33,8 +47,8 @@
 
 | 周次 | 主题 | 产出物 | 完成度 | 未掌握 / 卡点 |
 |---|---|---|---|---|
-| W0 | 环境搭建 | 仓库 + 首个提交 | 0% | 无 |
-| W1 | 语法速通 | 20 个小练习 | 0% | 无 |
+| W0 | 环境搭建（10-13 ~ 10-15） | 仓库 + 首个提交 + HelloWorld 上云 | 25% | 缺 JDK 21、独立 Maven、GitHub remote、WSL2 |
+| W1 | 语法速通（10-16 ~ 10-22） | 20 个小练习 | 0% | 待开始 |
 | W2 | OOP + 异常 + 泛型 + 反射 | 控制台图书/银行系统 | 0% | 无 |
 | W3 | 集合与源码 | 手写 ArrayList/HashMap | 0% | 无 |
 | W4 | 并发编程 | 手写线程池 + 实验报告 | 0% | 无 |
@@ -55,12 +69,16 @@
 
 > 每周把没搞懂的点追加进来，真正搞懂了才划掉。这张表是面试前最该看的清单。
 
-- （暂无）
+- JDK vs JRE 的区别，以及 `JAVA_HOME` 到底被谁用（Maven 启动脚本、IDEA、CI 都读它）——2026-10-13 记
+- Windows 的 **系统 PATH 优先于用户 PATH**（`java` 被 Oracle JRE 8 抢占就是这个原因）——2026-10-13 记
+- `settings.xml` / `localRepository` / 镜像在企业内网和国内网络里的作用——2026-10-13 记
 
 ## 当前卡点
 
-- 无
+- 系统 PATH 里两条 Oracle Java 8 条目排在 `java` 解析链最前面，且系统 PATH 永远先于用户 PATH ⇒ **只改用户变量没用**，必须改系统变量
+- 没有 JDK 21 ⇒ IDEA 里建不了 Java 21 项目，W1 无法开始
+- 没有 Git remote + SSH key ⇒ W0 产出物（推到 GitHub）卡住
 
 ## 下次开局第一件事
 
-- 安装 JDK 21 并配置 `JAVA_HOME`，在 IDEA 里跑通 Hello World
+- 装 Temurin JDK 21 → 清掉 PATH 里两条 Oracle Java 8 条目 → 重开终端验证 `javac -version` 是 21 → 在 IDEA 里跑通 HelloWorld → 配 SSH key 推到 GitHub
