@@ -1,32 +1,32 @@
 # 学习进度
 
 > 每次对话开始先读这份文件；每周结束前更新它。
-> 最后更新：2026-10-14
+> 最后更新：2026-10-16
 
 ## 当前位置
 
 | 项 | 内容 |
 |---|---|
-| 当前周 | **W0 —— 环境搭建**（进行中，环境已实测核查） |
-| 当前阶段 | 阶段 0 |
-| 本周开始日期 | 2026-10-13（周二）～ 2026-10-15（周四），共 3 天 |
-| 本周主题 | 环境搭建：JDK 21、Maven、IDEA、Git/GitHub、WSL2/Docker、AI 工具、云服务器 |
-| 本周产出物 | GitHub 仓库有提交，README 写明 16 周计划 |
-| 本周状态 | 进行中：JDK 21 已装好（10-14 实测通过）；独立 Maven / HelloWorld / GitHub remote / WSL2 待完成 |
-| 下周起始 | W1 = 2026-10-16（周五）～ 2026-10-22（周四），6 个学习日 + 1 个复盘日 |
+| 当前周 | **W1 —— 语法速通**（进行中，D1） |
+| 当前阶段 | 阶段 1 |
+| 本周开始日期 | 2026-10-16（周五）～ 2026-10-22（周四）：6 个学习日 + 1 个复盘日 |
+| 本周主题 | 语法速通：类型/值传递/装箱拆箱、运算符与流程控制、数组、方法重载、String/StringBuilder、包与访问修饰符、IDE 调试器 |
+| 本周产出物 | `src/w01-basics/` 下 20 个可运行练习 + `notes.md` 问答笔记 |
+| 本周状态 | D1 进行中：类型系统 / 值传递 / 装箱拆箱（练习 E01–E04） |
+| W0 结论 | 2026-10-16 判定 **达标**（技术门槛实测全过，见下方底账）；顺延 3 项记账类任务：Docker Desktop、云服务器、AI 工具 |
 
-## 环境实测底账（2026-10-14 复核）
+## 环境实测底账（2026-10-16 复核）
 
 | 项 | 实测结果 |
 |---|---|
-| Git | ✅ 2.55.0，全局 `user.name/email` 已配；仓库 `java-study` 在 `main` 上已有 1 个提交 |
-| IntelliJ IDEA | ✅ 2026.2.3（`C:\Dev\IntelliJ IDEA 2026.2.3`），已启动过；⚠️ Ultimate 模块被禁用（等同社区版功能），未装任何第三方插件 |
-| JDK | ✅ **Temurin 21.0.12.1**（`C:\Program Files\Eclipse Adoptium\jdk-21.0.12.101-hotspot`）；系统变量 `JAVA_HOME` 已配；PATH 第一条就是它的 `bin`；`javac` 可用。Oracle JRE 8 条目仍在 PATH 但已排在后面，不再抢占 |
-| Maven | ❌ 仍只有 IDEA 内置的 3.9.16（`plugins\maven-plugin\lib\maven3`），未装独立版、`mvn` 不在 PATH；无 `~/.m2\settings.xml`（无镜像） |
-| 远程仓库 | ❌ 无 `git remote`；`~/.ssh` 只有 `known_hosts`，**没有 SSH key** |
-| WSL2 / Docker | ❌ 都没装（`wsl --status` 提示未安装 Linux 子系统） |
-| 网络 | ✅ github.com、Maven Central 均可达（HTTP 200）；winget / curl / ssh / node 可用 |
-| 练习代码 | ❌ `src/w01-basics/` 只有 pom/README/notes，尚无 `.java` 代码 |
+| Git | ✅ 2.55.0；`user.name = Menshikii`，邮箱用 GitHub noreply（不暴露真实姓名/学号）；remote = `git@github.com:Menshikii/java-study.git`；5 条提交已 push |
+| IntelliJ IDEA | ✅ 2026.2.3；已在 `src/w01-basics` 打开项目并跑通；⚠️ Ultimate 模块被禁用（等同社区版功能），未装第三方插件 |
+| JDK | ✅ Temurin **21.0.12.1**；系统变量 `JAVA_HOME` 已配；PATH 第一条是它；`javac 21.0.12.1` 可用。Oracle JRE 8 条目仍在 PATH 但已排在后面 |
+| Maven | ✅ 独立版 **3.9.16**（`C:\Dev\tools\apache-maven-3.9.16`，与 IDEA 内置版同版本）；`mvn -v` 显示 `Java version: 21.0.12.1`；`~/.m2/settings.xml` 已配阿里云镜像（10-14 写入） |
+| 远程仓库 | ✅ SSH key 已配置（10-14 生成）；`ssh -T git@github.com` 通过；仓库已推送并跟踪 `origin/main` |
+| WSL2 / Docker | ✅ WSL2 + Ubuntu，`uname -a` = `microsoft-standard-WSL2`（内核 6.18.54.1）；❌ Docker Desktop 未装 |
+| 网络 | ✅ github / Maven Central / 阿里云镜像（`maven.aliyun.com/repository/public` 返回 200）均可达 |
+| 练习代码 | ✅ `src/w01-basics` 已跑通 HelloWorld（IDEA 与 `java -cp target\classes` 双验证）；W1 练习进度 0/20 |
 
 ## 里程碑进度
 
@@ -47,8 +47,8 @@
 
 | 周次 | 主题 | 产出物 | 完成度 | 未掌握 / 卡点 |
 |---|---|---|---|---|
-| W0 | 环境搭建（10-13 ~ 10-15） | 仓库 + 首个提交 + HelloWorld 上云 | 45% | JDK 21 已完成；缺独立 Maven、HelloWorld、GitHub remote、WSL2 |
-| W1 | 语法速通（10-16 ~ 10-22） | 20 个小练习 | 0% | 待开始 |
+| W0 | 环境搭建（10-13 ~ 10-15，实际收到 10-16） | 仓库 + 首个提交 + HelloWorld 推上 GitHub | 90% | 达标；顺延：Docker Desktop、云服务器注册、AI 工具（学生包） |
+| W1 | 语法速通（10-16 ~ 10-22） | 20 个小练习 | 5% | D1 进行中（E01–E04） |
 | W2 | OOP + 异常 + 泛型 + 反射 | 控制台图书/银行系统 | 0% | 无 |
 | W3 | 集合与源码 | 手写 ArrayList/HashMap | 0% | 无 |
 | W4 | 并发编程 | 手写线程池 + 实验报告 | 0% | 无 |
@@ -69,16 +69,15 @@
 
 > 每周把没搞懂的点追加进来，真正搞懂了才划掉。这张表是面试前最该看的清单。
 
-- JDK vs JRE 的区别，以及 `JAVA_HOME` 到底被谁用（Maven 启动脚本、IDEA、CI 都读它）——2026-10-13 记，10-14 已用 `where.exe java` 实测验证顺序
-- Windows 的 **系统 PATH 优先于用户 PATH**（`java` 被 Oracle JRE 8 抢占就是这个原因）——2026-10-13 记，10-14 实测修好
-- `settings.xml` / `localRepository` / 镜像在企业内网和国内网络里的作用——2026-10-13 记
+- JDK vs JRE 的区别，以及 `JAVA_HOME` 到底被谁用（Maven 启动脚本、IDEA、CI 都读它）——2026-10-13 记，10-16 待口述验收
+- Windows 的 **系统 PATH 优先于用户 PATH**（`java` 被 Oracle JRE 8 抢占就是这个原因）——2026-10-13 记，10-14 实测修好，10-16 待口述验收
+- `settings.xml` / `localRepository` / 镜像在企业内网和国内网络里的作用——2026-10-14 已亲手写 `settings.xml` 实践一次
 
 ## 当前卡点
 
-- 独立 Maven 未装、不在 PATH ⇒ 命令行跑不了 `mvn`，只有 IDEA 内部能构建
-- 没有 Git remote + SSH key ⇒ W0 产出物（推到 GitHub）卡住
-- `git config user.name` 目前是真实姓名+学号（`202400150073网安赵鹏翔`），若仓库设为 Public，每次提交都会公开暴露 ⇒ 建仓库前先决定是改昵称还是用 Private
+- 无技术卡点（环境门槛已全部实测通过）
+- 待办（不影响进 W1）：Docker Desktop 未装；云服务器未注册；AI 工具（GitHub Student Pack / Copilot）未申请
 
 ## 下次开局第一件事
 
-- 装独立 Maven（3.9.16，与 IDEA 内置版一致）+ 配 `settings.xml` 阿里云镜像 → IDEA 打开 `src/w01-basics` 手敲 HelloWorld 并跑通 → 配 SSH key 推到 GitHub → `wsl --install -d Ubuntu` 后重启
+- W1 D2：运算符与流程控制（E05–E07）+ **调试器专项**（E08：只用调试器定位死循环 / 数组越界 / 差一错误三个 bug）
