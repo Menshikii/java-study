@@ -3,6 +3,8 @@
 包名约定：每个练习一个类，统一放 `w01.basics` 包（`src/main/java/w01/basics/`）。
 类名 = 练习编号对应的主题名，例如练习 1 写 `E01PrimitiveRange.java`。**每个类都要有 `main`，能单独跑。**
 
+> 实验文档：当天讲解全部结束后，统一写入 `experiments/W01Dn/Experiment.md`（如 `experiments/W01D2/Experiment.md`），每天一份，不覆盖前一天的。
+
 ## 怎么跑
 
 ```powershell
