@@ -48,17 +48,17 @@ public class E01PrimitiveRange {
         // 1. int 200 强转 byte 会得到什么？
         int i1 = 200;
         byte b1 = (byte) i1;
-        System.out.println(i1);
+        System.out.println(b1);
 
         // 2. int 65535 强转 short 会得到什么？
         int i2 = 65535;
         short s1 = (short) i2;
-        System.out.println(i2);
+        System.out.println(s1);
 
         // 3. int 257 强转 byte 会得到什么？
         int i3 = 257;
         byte b2 = (byte) i3;
-        System.out.println(i3);
+        System.out.println(b2);
         // 4. 两个 byte 相加，结果是什么类型？
         byte x = 1;
         byte y = 2;
